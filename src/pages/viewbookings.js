@@ -2,7 +2,7 @@ import React from 'react';
   
 const ViewBookings = () => {
   return (
-    <div className="page">
+    <div class="page">
       <h1>View bookings page</h1>
     </div>
   );

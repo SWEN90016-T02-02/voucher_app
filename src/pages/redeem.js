@@ -2,7 +2,7 @@ import React from 'react';
   
 const Redeem = () => {
   return (
-    <div className="page">
+    <div class="page">
       <h1>Redeem code page</h1>
     </div>
   );

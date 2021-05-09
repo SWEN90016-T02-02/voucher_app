@@ -10,11 +10,12 @@ import ViewBookings from './pages/viewbookings';
 import Redeem from './pages/redeem';
 import ViewBookingsAdmin from './pages/viewbookingsadmin';
 import AddService from './pages/addservice';
+import Register from './pages/register';
 
 function App() {
   return (
     <Router>
-      <Navbar isUser={true} isAdmin={true}/>
+      <Navbar isUser={false} isAdmin={false}/>
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/login' component={LogIn} />
@@ -24,6 +25,7 @@ function App() {
         <Route path='/redeem' component={Redeem} />
         <Route path='/viewbookingsadmin' component={ViewBookingsAdmin} />
         <Route path='/addservice' component={AddService} />
+        <Route path='/register' component={Register} />
       </Switch>
     </Router>
   );

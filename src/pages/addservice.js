@@ -2,7 +2,7 @@ import React from 'react';
   
 const AddService = () => {
   return (
-    <div className="page">
+    <div class="page">
       <h1 >Admin add service page</h1>
     </div>
   );
