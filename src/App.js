@@ -11,6 +11,7 @@ import Redeem from './pages/redeem';
 import ViewBookingsAdmin from './pages/viewbookingsadmin';
 import AddService from './pages/addservice';
 import Register from './pages/register';
+import "@fontsource/roboto"
 
 function App() {
   return (
