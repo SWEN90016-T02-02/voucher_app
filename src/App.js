@@ -9,14 +9,14 @@ import MakeBooking from './pages/makebooking';
 import ViewBookings from './pages/viewbookings';
 import Redeem from './pages/redeem';
 import ViewBookingsAdmin from './pages/viewbookingsadmin';
+import ViewSingleBookingAdmin from './pages/viewsinglebookingadmin';
 import AddService from './pages/addservice';
 import Register from './pages/register';
-import "@fontsource/roboto"
 
 function App() {
   return (
     <Router>
-      <Navbar isUser={true} isAdmin={false}/>
+      <Navbar isUser={true} isAdmin={true}/>
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/login' component={LogIn} />
@@ -25,6 +25,7 @@ function App() {
         <Route path='/viewbookings' component={ViewBookings} />
         <Route path='/redeem' component={Redeem} />
         <Route path='/viewbookingsadmin' component={ViewBookingsAdmin} />
+        <Route path='/viewsinglebookingadmin' component={ViewSingleBookingAdmin} />
         <Route path='/addservice' component={AddService} />
         <Route path='/register' component={Register} />
       </Switch>
