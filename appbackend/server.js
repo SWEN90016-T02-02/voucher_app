@@ -8,7 +8,8 @@ const port = 4000
 
 // a safer way to connect to database
 const dotenv = require('dotenv')
-const routesUrls = require('./routes/normalRouter')
+const signupUrls = require('./routes/normalRouter')
+const loginUrls = require('./routes/loginRouter')
 const cors = require('cors')
 
 dotenv.config()
@@ -29,7 +30,9 @@ db.once('open',async ()=>{
 app.use(express.json())
 app.use(cors())
 // base path
-app.use('/app', routesUrls)
+app.use('/app', signupUrls)
+app.use('/app',loginUrls)
+
 
 app.listen(port, () => {
     console.log(`The app is listening at http://localhost:${port}`)

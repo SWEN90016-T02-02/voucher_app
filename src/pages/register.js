@@ -7,8 +7,8 @@ class Register extends Component {
       constructor(){
         super()
         this.state = {
-          firstName:'',
-          lastName:'',
+          first_name:'',
+          last_name:'',
           email:'',
           phone_number:'',
           password:'',
@@ -24,13 +24,13 @@ class Register extends Component {
 
       changeFirstName(event){
         this.setState({
-          firstName:event.target.value
+          first_name:event.target.value
         })
       }
 
       changeLastName(event){
         this.setState({
-          lastName:event.target.value
+          last_name:event.target.value
         })
       }
 
@@ -56,8 +56,8 @@ class Register extends Component {
         event.preventDefault()
 
         const registered = {
-          firstName:this.state.firstName,
-          lastName:this.state.lastName,
+          first_name:this.state.first_name,
+          last_name:this.state.last_name,
           phone_number:this.state.phone_number,
           user_id:1,
           email:this.state.email,
@@ -81,14 +81,14 @@ class Register extends Component {
                 <input type="text" 
                 placeholder="Enter first name" 
                 onChange={this.changeFirstName} 
-                value={this.state.firstName} 
+                value={this.state.first_name} 
                 name="fname" required/>
       
                 <label><b>Last Name</b></label>
                 <input type="text" 
                 placeholder="Enter last name" 
                 onChange={this.changeLastName} 
-                value={this.state.lastName} 
+                value={this.state.last_name} 
                 name="lname" required/>
       
                 <label><b>Email</b></label>
