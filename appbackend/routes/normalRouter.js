@@ -13,8 +13,8 @@ userRouter.post('/signup', (request, response) =>{
         phone_number:request.body.phone_number,
         user_id:request.body.user_id,
         email:request.body.email,
-        password:request.body.password
-
+        password:request.body.password,
+        point: 0
     })
     signedUpUser.save()
     .then(data =>{

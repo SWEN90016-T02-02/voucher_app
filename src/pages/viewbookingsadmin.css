@@ -1,0 +1,33 @@
+#listBookings {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+    width: 50%;
+}
+
+#listBookings>li {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    border-width: 2px;
+    border-style: solid;
+    border-color:#0b0c10;
+    border-radius: 16px;
+    padding: 16px;
+    margin: 16px;
+}
+
+#listBookings>li a {
+text-decoration: none;
+color: black;
+}
+
+#listBookings>li:hover {
+    background-color: #1f2833;
+    color:white;
+}
+
+#listBookings>li:hover > a {
+    background-color: #1f2833;
+    color:white;
+}

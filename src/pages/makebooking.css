@@ -1,0 +1,80 @@
+#res_form {
+/*表的宽度以及位置*/
+    width: 500px;
+    top: 100px;
+}
+#res {
+    position: relative;
+    float: right;
+    margin-right: 10%;
+}
+#a {
+    /*调整input输入框与文字位置，显示同一行*/
+    height: 50px;
+    border: 1px;
+    margin: 10px;
+    text-align: left;
+}
+
+#a input {
+    border: 1px solid #000000;
+    /*按钮边缘*/
+    border-radius: 5px;
+    float: right;
+}
+
+#a select {
+    border: 5px;
+    width: 200px;
+    border-color: #000000;
+    border-radius: 5px;
+    float: right;
+}
+
+#textarea {
+    float: right;
+    width: 200px;
+}
+#bt {
+    width: 500px;
+    height: 100px;
+}
+#bt input {
+    float: left;
+    margin: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: #3CF;
+    border-bottom-color: #000000;
+    border-radius: 10px;
+    position: relative;
+    top: 20px;
+}
+#confirm {
+    left: 50px;
+}
+#reset {
+    left: 150px;
+}
+
+#bt input:hover {
+    background-color: #F00;
+    color: #FFF;
+    cursor: pointer;
+}
+
+#out {
+    display: block;
+    position: relative;
+    left: 10px;
+}
+
+img {
+    position: relative;
+    float: right;
+}
+
+#we {
+    position: relative;
+    right: 100px;
+}
