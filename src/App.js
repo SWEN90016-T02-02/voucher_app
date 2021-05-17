@@ -15,7 +15,7 @@ import Register from './pages/register';
 function App() {
   return (
     <Router>
-      <Navbar isUser={false} isAdmin={false}/>
+      <Navbar isUser={true} isAdmin={false}/>
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/login' component={LogIn} />
