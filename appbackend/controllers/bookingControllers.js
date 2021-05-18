@@ -7,9 +7,12 @@ const makeBooking = async (req,res) =>{
     var date = new Date()
     const newbooking = new Booking({
         user_email : req.body.email,
+        service_type: req.body.service,
+        method: req.body.method,
+        pickup_date: req.body.pickup_date,
         date: date.toLocaleString().toString(),
-        service_type: req.body.service
-    })                    
+    })       
+    newbooking.save()             
 }
 
 const getBookings = async (req,res) =>{
