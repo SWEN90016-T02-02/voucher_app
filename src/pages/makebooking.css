@@ -50,12 +50,24 @@
     position: relative;
     top: 20px;
 }
-#confirm {
-    left: 50px;
+#res_form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
-#reset {
-    left: 150px;
+
+#res_form .cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
 }
+
+#res_form .cancelbtn{float:left;width:30%}
+
+#res_form .confirmbt{float:right;width:30%}
 
 #bt input:hover {
     background-color: #F00;

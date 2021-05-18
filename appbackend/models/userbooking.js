@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const userbookingSchema = new mongoose.Schema({
-    user_name: {type: String, required: true},
     user_email : {type: String, required: true},
     phone_number: {type: String, required: true},
     service_type: {type: String,  required: true,

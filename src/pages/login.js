@@ -47,7 +47,6 @@ class LogIn extends Component {
       })
       .catch(err =>{
         alert(err)
-        
       })
 
     }

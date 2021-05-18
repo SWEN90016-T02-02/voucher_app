@@ -6,7 +6,6 @@ const Booking = mongoose.model("Userbooking");
 const makeBooking = async (req,res) =>{
     var date = new Date()
     const newbooking = new Booking({
-        user_name:req.body.user_name,
         user_email : req.body.user_email,
         phone_number:req.body.phone_number,
         service_type: req.body.service_type,
@@ -14,7 +13,11 @@ const makeBooking = async (req,res) =>{
         pickup_date: req.body.pickup_date,
         date: date.toLocaleString().toString(),
     })       
-    newbooking.save()             
+    newbooking.save()
+    return res.status(200).send({
+        message:"Success"
+    }
+    )           
 }
 
 const getBookings = async (req,res) =>{
