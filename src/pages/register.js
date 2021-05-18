@@ -67,6 +67,7 @@ class Register extends Component {
         axios.post('http://localhost:4000/app/signup', registered)
             .then(response => console.log(response.data))
 
+        window.localStorage.setItem("authUser", true);
         window.location = "/"
 
         

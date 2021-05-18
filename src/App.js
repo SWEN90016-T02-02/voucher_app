@@ -14,9 +14,12 @@ import AddService from './pages/addservice';
 import Register from './pages/register';
 
 function App() {
+  
+  const loggedIn = window.localStorage.getItem("authUser") ? true : false;
+
   return (
     <Router>
-      <Navbar isUser={true} isAdmin={true}/>
+      <Navbar isUser={loggedIn} isAdmin={false}/>
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/login' component={LogIn} />

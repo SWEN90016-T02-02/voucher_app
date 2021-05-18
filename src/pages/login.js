@@ -42,6 +42,7 @@ class LogIn extends Component {
       axios.post('http://localhost:4000/app/signin',request)
       .then(resp =>{
         alert("Login Success");
+        window.localStorage.setItem("authUser", true);
         window.location = '/'
       })
       .catch(err =>{
