@@ -2,53 +2,33 @@ import React from 'react';
 import './viewsinglebookingadmin.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
   
-function getBookingDetails(props) {
-    return {"booking_id":props.location.state.bookingID,
-            "user_id":"user_1",
-            "service_type":"flowers",
-            "delivery_type":"On-site",
-            "date":"1-6-2021",
-            "message":"optional message",
-            "name":"John Smith",
-            "phone_number": "12345678",
-            "email_address":"js@email.com"};
-};
 
 const ViewSingleBookingAdmin = (props) => {
-
-    const bookingDetails = getBookingDetails(props);
 
     return (
         <div class="page">
             <h1 >Viewing booking</h1>
             <ul id="bookingDetail">
                 <li>
-                    Booking ID: {bookingDetails.booking_id}
+                    User Email: {props.location.state.user_email}
                 </li>
                 <li>
-                    User ID: {bookingDetails.user_id}
+                    Service Type: {props.location.state.st}
                 </li>
                 <li>
-                    Customer name: {bookingDetails.name}
+                    Customer Phone Number: {props.location.state.phone_number}
                 </li>
                 <li>
-                    Customer phone number: {bookingDetails.phone_number}
+                    Customer Pick-up Method: {props.location.state.method}
                 </li>
                 <li>
-                    Customer email address: {bookingDetails.email_address}
+                    Customer Pick-up Date: {props.location.state.pickup_date}
                 </li>
+
                 <li>
-                    Service type: {bookingDetails.service_type}
+                    Booking Established Time: {props.location.state.date}
                 </li>
-                <li>
-                    Delivery type: {bookingDetails.delivery_type}
-                </li>
-                <li>
-                    Delivery date: {bookingDetails.date}
-                </li>
-                <li>
-                    Message: {bookingDetails.message}
-                </li>
+                
             </ul>
             <span/>
             <ul id="nav">

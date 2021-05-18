@@ -22,10 +22,11 @@ function Navbar(props) {
                     <li><a href="/viewbookingsadmin">View bookings</a></li>
                     <li><a href="/addservice">Add service type</a></li>
                 </ul>
-                <div id="logout">log out</div>
+                <button onClick={clearStorage} id="logout">log out</button>
             </div>
         );
-    } else if (props.isUser == true) {
+    } 
+    else if (props.isUser == true) {
         return (
             <div className="sideNavigationBar">
                 <ul>
@@ -43,7 +44,8 @@ function Navbar(props) {
                 <button onClick={clearStorage} id="logout">log out</button>
             </div>
       );
-    } else {
+    } 
+    else {
         return (
             <div className="sideNavigationBar">
                 <ul>

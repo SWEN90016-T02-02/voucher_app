@@ -62,3 +62,30 @@ app.use('/booking', bookingRouter)
 app.listen(port, () => {
     console.log(`The app is listening at http://localhost:${port}`)
   });
+
+
+
+
+// const Booking = mongoose.model("Userbooking");
+// app.get('/addbooking',(req, res) =>{
+//     const email = ["test1@test.com","test2@test.com","test3@test.com"]
+//     const pn = ["0421111112", "0422222222", "0423333333"]
+//     const st = ["flowers","vegmeal","bakerygoods", "chocolatebox", "cheeseplatter"]
+//     const method = ["pick-up from the service","local delivery to the MYD offices"]
+
+//     for (var i=0; i<=10; i++){
+//         const ran1 = Math.floor(Math.random() * 3)
+//         const ran2 = Math.floor(Math.random() * 6)
+//         const ran3 = Math.floor(Math.random() * 2)
+//         const newbooking = new Booking({
+//             user_email : email[ran1],
+//             phone_number: pn[ran1],
+//             service_type: st[ran2],
+//             method: method[ran3],
+//             pickup_date: new Date(),
+//             date: new Date().toLocaleDateString().toString()
+//         })
+//         newbooking.save()
+//     }
+
+// })

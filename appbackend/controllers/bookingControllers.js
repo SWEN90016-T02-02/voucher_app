@@ -25,4 +25,12 @@ const getBookings = async (req,res) =>{
     res.json(allbookings)
 }
 
-module.exports = {makeBooking, getBookings}
+// for admin user 
+const adminView = async (req,res) =>{
+    const allbookings = await Booking.find().lean()
+    res.send(allbookings)
+}
+
+
+
+module.exports = {makeBooking, getBookings, adminView}
