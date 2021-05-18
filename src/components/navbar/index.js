@@ -4,6 +4,11 @@ import logo from '../../images/uom.png';
 import generic from '../../images/generic.jpg';
 
 function Navbar(props) {
+    const clearStorage = ()=>{
+        window.localStorage.clear()
+        window.location = "/"
+    }
+
     if (props.isAdmin == true) {
         return (
             <div className="sideNavigationBar">
@@ -27,7 +32,7 @@ function Navbar(props) {
                     <li id="logo">
                         <a href="/">
                             <ReactRoundedImage image={generic} imageWidth="150" imageHeight="150"/>
-                            John Smith
+                            {window.localStorage.fn} {window.localStorage.ln}
                         </a>
                     </li>
                     <li><a href="/profile">Profile</a></li>
@@ -35,7 +40,7 @@ function Navbar(props) {
                     <li><a href="/viewbookings">View bookings</a></li>
                     <li><a href="/redeem">Redeem code</a></li>
                 </ul>
-                <div id="logout">log out</div>
+                <button onClick={clearStorage} id="logout">log out</button>
             </div>
       );
     } else {
