@@ -6,8 +6,10 @@ const Booking = mongoose.model("Userbooking");
 const makeBooking = async (req,res) =>{
     var date = new Date()
     const newbooking = new Booking({
-        user_email : req.body.email,
-        service_type: req.body.service,
+        user_name:req.body.user_name,
+        user_email : req.body.user_email,
+        phone_number:req.body.phone_number,
+        service_type: req.body.service_type,
         method: req.body.method,
         pickup_date: req.body.pickup_date,
         date: date.toLocaleString().toString(),
