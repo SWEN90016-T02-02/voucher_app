@@ -9,7 +9,7 @@ function Navbar(props) {
         window.location = "/"
     }
 
-    if (props.isAdmin == true) {
+    if (props.isAdmin == "true") {
         return (
             <div className="sideNavigationBar">
                 <ul>
@@ -26,7 +26,7 @@ function Navbar(props) {
             </div>
         );
     } 
-    else if (props.isUser == true) {
+    else if (props.isAdmin == "false") {
         return (
             <div className="sideNavigationBar">
                 <ul>

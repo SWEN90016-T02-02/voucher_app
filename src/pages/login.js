@@ -46,7 +46,7 @@ class LogIn extends Component {
         window.localStorage.setItem("fn", resp.data.first_name);
         window.localStorage.setItem("ln", resp.data.last_name);
         window.localStorage.setItem("email", resp.data.email);
-        window.localStorage.setItem("admin", resp.data.isadmin);
+        window.localStorage.setItem("isadmin", resp.data.isadmin);
         window.location = '/'
       })
       .catch(err =>{
