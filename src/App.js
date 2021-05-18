@@ -14,8 +14,16 @@ import AddService from './pages/addservice';
 import Register from './pages/register';
 
 function App() {
-  
-  const loggedIn = window.localStorage.getItem("authUser") ? true : false;
+  var loggedIn = false
+  const logstatus = window.localStorage.getItem("authUser")
+
+  if (logstatus){
+    loggedIn = true
+  }
+
+  else{
+    loggedIn = false
+  }
 
   return (
     <Router>

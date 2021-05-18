@@ -43,11 +43,14 @@ class LogIn extends Component {
       .then(resp =>{
         alert("Login Success");
         window.localStorage.setItem("authUser", true);
+        window.localStorage.setItem("fn", resp.data.first_name);
+        window.localStorage.setItem("ln", resp.data.last_name);
+        window.localStorage.setItem("email", resp.data.email);
+        window.localStorage.setItem("admin", resp.data.isadmin);
         window.location = '/'
       })
       .catch(err =>{
         alert(err)
-        
       })
 
     }

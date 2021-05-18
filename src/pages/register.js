@@ -68,6 +68,10 @@ class Register extends Component {
             .then(response => console.log(response.data))
 
         window.localStorage.setItem("authUser", true);
+        window.localStorage.setItem("fn", this.state.first_name);
+        window.localStorage.setItem("ln", this.state.last_name);
+        window.localStorage.setItem("email", this.state.email);
+        window.localStorage.setItem("admin", false);
         window.location = "/"
 
         
