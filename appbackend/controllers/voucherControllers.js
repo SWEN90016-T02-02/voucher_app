@@ -7,26 +7,36 @@ const redeemVoucher = async (req,res) => {
     try {
         // the name of the object in the body should be the same as what 
         // it is in the input's name field within the form
-        const voucher = await Voucher.find({code:req.body.voucher_code}).lean()
+        const voucher = await Voucher.findOne({code:req.body.code}).lean()
         if (voucher){
             const voucher_point = voucher.point
             // the name of the object in the body should be the same as what 
             // it is in the input's name field within the form
-            const user = await User.find({email:req.body.email}).lean()
+            const user = await User.findOne({email:req.body.email}).lean()
             if (user){
                 var user_point = user.point + voucher_point
                 User.updateOne({email:req.body.email},{$set:{point:user_point}})
-                res.redirect('/profile') // ---awaiting changes--- 
+                return res.status(200).send({
+                    message:"Success"
+                }
+                ) 
             }
             else{
                 // ---awaiting changes--- 
-                res.redirect('/profile')
+                return res.status(404).send({
+                    message:"User Not found"
+                }
+                ) 
             }
+
         }
         
         else{
             // ---awaiting change--- 
-            res.redirect('/voucherrd')
+            return res.status(404).send({
+                message:"Voucher Not found"
+            }
+            ) 
         }
 
     }catch(err) {
