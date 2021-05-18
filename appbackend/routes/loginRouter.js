@@ -21,10 +21,7 @@ router.post('/signin', function(req, res){
         }
 
 
-        return res.status(200).send({
-            message:"Success"
-        }
-        )
+        return res.status(200).json(user)
 
     }) 
 })

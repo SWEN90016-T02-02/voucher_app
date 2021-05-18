@@ -43,6 +43,9 @@ class LogIn extends Component {
       .then(resp =>{
         alert("Login Success");
         window.localStorage.setItem("authUser", true);
+        window.localStorage.setItem("firstname", resp.data.first_name);
+        window.localStorage.setItem("email", true);
+        window.localStorage.setItem("admin", resp.data.isadmin);
         window.location = '/'
       })
       .catch(err =>{

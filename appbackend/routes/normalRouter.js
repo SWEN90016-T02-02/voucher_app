@@ -14,7 +14,8 @@ userRouter.post('/signup', (request, response) =>{
         user_id:request.body.user_id,
         email:request.body.email,
         password:request.body.password,
-        point: 0
+        point: 0,
+        isadmin: false
     })
     signedUpUser.save()
     .then(data =>{
