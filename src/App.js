@@ -6,7 +6,7 @@ import Home from './pages';
 import LogIn from './pages/login';
 import Profile from './pages/profile';
 import MakeBooking from './pages/makebooking';
-import ViewBookings from './pages/viewbookings';
+import ViewSingleBookingUser from './pages/viewbookings';
 import Redeem from './pages/redeem';
 import ViewBookingsAdmin from './pages/viewbookingsadmin';
 import ViewSingleBookingAdmin from './pages/viewsinglebookingadmin';
@@ -25,7 +25,7 @@ function App() {
         <Route path='/login' component={LogIn} />
         <Route path='/profile' component={Profile} />
         <Route path='/makebooking' component={MakeBooking} />
-        <Route path='/viewbookings' component={ViewBookings} />
+        <Route path='/viewbookings' component={ViewSingleBookingUser} />
         <Route path='/redeem' component={Redeem} />
         <Route path='/viewbookingsadmin' component={ViewBookingsAdmin} />
         <Route path='/viewsinglebookingadmin' component={ViewSingleBookingAdmin} />
