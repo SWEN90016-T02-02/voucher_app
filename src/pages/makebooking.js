@@ -68,17 +68,17 @@ class MakeBooking extends Component{
     axios.post("http://localhost:4000/booking/makebooking", request)
     .then(resp =>{
       alert("Successfully Booked");
-      window.location = '/'
+      // window.location = '/'
     })
     .catch(err =>{
       alert(err)
     })
+
   }
 
-
-
-
   render(){
+
+    
     return (
       <div class="page">
         <div id="res_form">

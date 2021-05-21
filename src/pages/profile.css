@@ -1,0 +1,137 @@
+#profile .body{
+    background-color: #fff0f5;
+}
+
+#profile .a{
+        display: flex;
+        margin-top: 60px;
+        justify-content: space-around;
+        color: white;
+        flex-wrap: wrap;
+
+    }
+#profile .one,.two,.three{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+#profile .one{
+        order:0;
+        background: #FFFFFF;
+        height: 200px;
+
+    }
+
+#profile .nav{
+        text-align: center;
+    }
+#profile .one1{
+        width: 90%;
+        height:70px;
+        margin-top: 20px;
+        border: 3px solid #E1DED6
+    }
+#profile .one2{
+        width: 90%;
+        height: 70px;
+        border: 3px solid #E1DED6;
+    }
+#profile .one3{
+        width: 100%;
+        height: 80px;
+        background-color: #EF8D32;
+        margin-top:-10px;
+        color: white;
+        cursor:pointer;
+    }
+#profile .two1 img{
+        margin-top: 5px;
+        width: 80%;
+        height: 80%;
+        border-radius: 50%;
+    }
+#profile .two1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color:  #ffffff;
+    }
+#profile .two2{    
+        width: 100%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        background-color: #EF8D32;
+    }
+#profile .two2 div{
+        width: 100%;
+        margin-top: 8px;
+        font-size: 14px;
+        text-align: center;
+    }
+#profile .two2-one{
+        border-right: 1px solid white;
+    }
+#profile .text1{
+        color: red;
+          width: 100%;
+        font-size: 18px;
+        margin-top: -10px;
+        line-height: 40px;
+        text-align: center;
+        background-color: #FFFFFF;
+    }
+#profile .three1{
+        width: 100%;
+        height: 50px;
+        color: white;
+           cursor:pointer;
+        background-color:#EF8D32;
+        border: 1px solid indianred;
+    }
+#profile .three-image1{
+        width:25px;
+        height: 25px;
+        margin-top: 10px;
+        display: inline-block;
+    }
+#profile .three-image2{
+         width:25px;
+        height: 25px;	
+        margin-top: 10px;
+        display: inline-block;
+      }
+#profile .three-image3{
+        width:25px;
+        height: 25px;
+        margin-top: 10px;
+        display: inline-block;
+    }
+#profile .three-image4{
+        width:25px;
+        height: 25px;
+        margin-top: 10px;
+        display: inline-block;
+    }
+#profile .one3:hover{
+        background-color: #ee5a32;
+    }
+#profile .three1:hover{
+        background-color: #ee5a32;
+    }
+#profile button{
+        border: none;
+        float: right;
+        margin-top: 13px;
+        margin-right: 4px;
+        border-radius: 4px;
+        background-color: pink;
+    }
+@media screen and (max-width: 500px) {
+    .one,.two,.there{
+        width: 100%;
+        margin-top: 10px;
+    }
+}

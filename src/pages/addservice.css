@@ -1,0 +1,13 @@
+#service_button {
+    width: 20%;
+    height: 40px;
+    background-color: #EF8D32;
+    color: white;
+    cursor:pointer;
+}
+
+#service_text {
+    width: 20%;
+    height: 40px;
+    color: white;
+}
