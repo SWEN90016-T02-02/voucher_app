@@ -13,7 +13,7 @@ const ViewSingleBookingAdmin = (props) => {
                     User Email: {props.location.state.user_email}
                 </li>
                 <li>
-                    Service Type: {props.location.state.st}
+                    Service Type: {props.location.state.service_type}
                 </li>
                 <li>
                     Customer Phone Number: {props.location.state.phone_number}

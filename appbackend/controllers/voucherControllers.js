@@ -8,16 +8,17 @@ const redeemVoucher = async (req,res) => {
         // the name of the object in the body should be the same as what 
         // it is in the input's name field within the form
         const voucher = await Voucher.findOne({code:req.body.code}).lean()
+        const user = await User.findOne({email:req.body.email}).lean()
         if (voucher){
             const voucher_point = voucher.point
             // the name of the object in the body should be the same as what 
             // it is in the input's name field within the form
-            const user = await User.findOne({email:req.body.email}).lean()
             if (user){
-                var user_point = user.point + voucher_point
-                User.updateOne({email:req.body.email},{$set:{point:user_point}})
+                await User.updateOne({email:req.body.email},{$inc:{point: voucher_point}})
+                const userupdated = await User.findOne({email:req.body.email}).lean()
                 return res.status(200).send({
-                    message:"Success"
+                    message: "" + voucher_point + " voucher points successfully added to the user! Now " 
+                                + userupdated.point + " remaining."
                 }
                 ) 
             }

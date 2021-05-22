@@ -15,7 +15,7 @@ const makeBooking = async (req,res) =>{
         date: date.toLocaleString().toString(),
     })       
     newbooking.save()
-    sendEmail()
+    sendEmail(req,res)
     return res.status(200).send({
         message:"Success"
     }
@@ -44,6 +44,16 @@ const sendEmail = async (req,res) => {
       }
     })
 
+    const userInstance = await User.findOne({email: req.body.user_email}).lean()
+    const u_fn = userInstance.first_name
+    const u_ln = userInstance.last_name
+    const u_email = userInstance.email
+    const u_ph = userInstance.phone_number
+    const u_pk = req.body.pickup_date
+    const u_st = req.body.service_type
+    const u_date = new Date()
+
+
 
     // Message object
     let message = {
@@ -57,12 +67,22 @@ const sendEmail = async (req,res) => {
       text: 'Test email from voucher service',
 
       // HTML body
-      html: `<p>A new voucher booking has been made: </br>
-                Name:</br>
-                Phone number:</br>
-                Email address:</br>
-                Date + time:</br>
-                Message:</p>`,
+    //   html: `<p>A new voucher booking has been made: </br>
+    //             Name:</br>
+    //             Phone number:</br>
+    //             Email address:</br>
+    //             Date + time:</br>
+    //             Message:</p>`,
+
+      // HTML body
+      html: "<p>A new voucher booking has been made: </br>" +
+              "Name: " + u_fn + " " + u_ln + "</br>" +
+              "Phone number: " + u_ph + "</br>" +
+              "Email address: " + u_email + "</br>" +
+              "Service Type: " + u_st + "</br>" +
+              "Pick-up Date: " + u_pk + "</br>" +
+              "Date: " + u_date +
+              "Message: ",
 
       };
 

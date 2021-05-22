@@ -31,7 +31,8 @@ class Redeem extends Component{
     
     axios.post("http://localhost:4000/voucher/voucherrd/redeem", request)
     .then(resp =>{
-      alert("Successfully Redeemed");
+      // alert("Successfully Redeemed");
+      alert(resp.data.message);
       window.location = '/'
     })
     .catch(err =>{
