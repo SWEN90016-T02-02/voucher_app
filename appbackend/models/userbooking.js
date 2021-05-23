@@ -21,6 +21,7 @@ const userbookingSchema = new mongoose.Schema({
         "pick-up from the service"]},
     pickup_date:{type:Date,  required: true,},
     date: {type: String,  required: true},
+    option_message: {type: String,  required: false},
 })
 
 const Booking = mongoose.model('Userbooking', userbookingSchema)

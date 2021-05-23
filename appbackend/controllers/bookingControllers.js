@@ -143,6 +143,7 @@ const makeBooking = async (req,res) =>{
         method: req.body.method,
         pickup_date: req.body.pickup_date,
         date: date.toLocaleString().toString(),
+        option_message:req.body.option_message,
     })       
     newbooking.save()
     sendEmail(req,res)
