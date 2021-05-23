@@ -9,7 +9,7 @@ bookingRouter.post('/getbooking/:email', bookingController.getBookings)
 bookingRouter.get('/adminbooking',bookingController.adminView)
 
 // accept or reject booking
-bookingRouter.get('/acceptbooking',bookingController.acceptBooking)
-bookingRouter.get('/rejectbooking',bookingController.rejectBooking)
+bookingRouter.post('/acceptbooking',bookingController.acceptBooking)
+bookingRouter.post('/rejectbooking',bookingController.rejectBooking)
 
 module.exports = bookingRouter
