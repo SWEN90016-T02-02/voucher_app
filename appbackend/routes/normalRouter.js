@@ -26,6 +26,12 @@ userRouter.post('/signup', (request, response) =>{
     })
 })
 
+
+// userRouter.post('/changepassword', (req, res)=>{
+    
+
+// })
+
 // userRouter.get('/users', userController.getUsers)
 
 module.exports = userRouter

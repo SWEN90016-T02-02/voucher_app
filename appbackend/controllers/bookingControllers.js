@@ -153,6 +153,11 @@ const makeBooking = async (req,res) =>{
     )           
 }
 
+const getSingleUserBookings = async (req,res) =>{
+    const allbookings = await Booking.find({user_email: req.body.email}).lean()
+    res.json(allbookings)
+}
+
 const getBookings = async (req,res) =>{
     const allbookings = await Booking.find({user_email: req.params.email}).lean()
     res.json(allbookings)
@@ -223,4 +228,4 @@ const sendEmail = async (req,res) => {
 
 
 
-module.exports = {makeBooking, getBookings, adminView, rejectBooking, acceptBooking}
+module.exports = {makeBooking, getSingleUserBookings,getBookings, adminView, rejectBooking, acceptBooking}
