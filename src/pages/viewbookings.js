@@ -53,10 +53,12 @@ const ViewSingleBookingUser = (props) => {
                                             Delivery date: {d.pkd} <br/>
                                             Message: {d.msg} <br/>
                                             <ul id="nav">
-                                            <li id="reject"> <Link to='/viewbookings/'>Cancel</Link></li>
+                                            <li id="reject" ><Link to='/viewbookings/'>Cancel</Link></li>
                                             </ul>
                                             <br/>
                                             </li>);
+                    
+  
 
 return (
 <div class="page">
