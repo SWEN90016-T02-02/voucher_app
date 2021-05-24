@@ -17,6 +17,7 @@ const ViewSingleBookingUser = (props) => {
       .then(resp =>{
         const len = resp.data.length
         for(var i=0; i<len; i++){
+          window.localStorage.setItem(""+i+"_id", "get id #" + i + " from database here") //TODO
           window.localStorage.setItem(""+i+0, resp.data[i].service_type)
           window.localStorage.setItem(""+i+1, resp.data[i].method)
           window.localStorage.setItem(""+i+2, resp.data[i].pickup_date)
@@ -31,6 +32,7 @@ const ViewSingleBookingUser = (props) => {
     var bookings = []
     for(var i=0; i<window.localStorage.getItem("numberofbooking"); i++){
       var instance = {
+        "id": window.localStorage.getItem(""+i+"_id"),
         "st": window.localStorage.getItem(""+i+0),
         "method": window.localStorage.getItem(""+i+1),
         "pkd": window.localStorage.getItem(""+i+2),
@@ -44,8 +46,11 @@ const ViewSingleBookingUser = (props) => {
 
   }
 
-  console.log(bookings)
-
+  function cancelBooking(id) {
+    // Use id to delete in database
+    console.log(id) // TODO
+    // Then refresh the page
+  }
 
   const listBookings = bookings.map((d) =>  <li>
                                             Service type: {d.st} <br/>
@@ -53,7 +58,7 @@ const ViewSingleBookingUser = (props) => {
                                             Delivery date: {d.pkd} <br/>
                                             Message: {d.msg} <br/>
                                             <ul id="nav">
-                                            <li id="reject" ><Link to='/viewbookings/'>Cancel</Link></li>
+                                            <li id="reject" ><Link to='/viewbookings/' onClick={() => cancelBooking(d.id)}>Cancel</Link></li>
                                             </ul>
                                             <br/>
                                             </li>);
