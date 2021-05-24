@@ -9,6 +9,8 @@ class Profile extends Component{
         this.state = {
             password:'',
             new_password:'',
+            fullname:window.localStorage.getItem("fn") + " " + window.localStorage.getItem("ln"),
+            
         }
 
         this.changeOldPassword = this.changeOldPassword.bind(this)
@@ -47,6 +49,11 @@ class Profile extends Component{
         window.localStorage.setItem("password", this.state.new_password)
     }
 
+    clearStorage = ()=>{
+        window.localStorage.clear()
+        window.location = "/"
+    }
+
 
 
 
@@ -63,11 +70,8 @@ class Profile extends Component{
                 </div>
                 <div class="two" id="profile">
                     <div class="two1" id="profile"><img  id="profile" src={photo}/> </div>
-                    <div class="text1" id="profile">NAME</div>
-                    <div class="two2" id="profile">
-                        <div class="two2-one" id="profile">Male/Female</div>
-                        <div>User or Administrator</div>
-                    </div>
+                    <div class="text1" id="profile">{this.state.fullname}</div>
+  
                 </div>
                 <div class="three" id="profile">
                     <div class="three1" id="profile">
@@ -77,9 +81,9 @@ class Profile extends Component{
                     </div>
                     <div class="three1" id="profile">
                         <span class="three-image3" id="profile"> </span>
-                        <span>Modify My Information</span>
+                        <span>Modify Information</span>
                     </div>
-                    <div class="three1" id="profile">
+                    <div class="three1" id="profile" onClick={this.clearStorage}>
                         <span class="three-image4" id="profile"> </span>
                         <span>Log Out</span>
                     </div>
