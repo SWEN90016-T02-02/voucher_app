@@ -79,10 +79,6 @@ class Profile extends Component{
                         <span>Message</span>
                         <button id="profile">0</button>
                     </div>
-                    <div class="three1" id="profile">
-                        <span class="three-image3" id="profile"> </span>
-                        <span>Modify Information</span>
-                    </div>
                     <div class="three1" id="profile" onClick={this.clearStorage}>
                         <span class="three-image4" id="profile"> </span>
                         <span>Log Out</span>
@@ -90,6 +86,77 @@ class Profile extends Component{
                 </div>
             </div>
             </div>
+            <div id="change">
+                <table>
+                    <tr>
+                        <th>
+                            First name:
+                        </th>
+                        <th>
+                            <input type="text" id="name_pl" placeholder={"  "+window.localStorage.fn}/>
+                        </th>   
+                        <th>
+                            <button id="fn_button">Change</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                             Last name:
+                        </th>
+                        <th>
+                        <input type="text" id="lname_pl" placeholder={"  "+window.localStorage.ln}/>
+                        </th>   
+                        <th>
+                        <button id="ln_button">Change</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                        Phone:
+                        </th>
+                        <th>
+                        <input type="text" id="phone_pl" placeholder={"  "+window.localStorage.phone}/>
+                        </th>   
+                        <th>
+                        <button id="ph_button">Change</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                        Email:
+                        </th>
+                        <th>
+                        <input type="text" id="email_pl" placeholder={"  "+window.localStorage.email}/>
+                        </th>   
+                        <th>
+                        <button id="em_button">Change</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                        Name on invoice:
+                        </th>
+                        <th>
+                        <input type="text" id="name_invoice_pl" placeholder={"  "+window.localStorage.fn}/>
+                        </th>   
+                        <th>
+                        <button id="ni_button">Change</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                        Biller email:
+                        </th>
+                        <th>
+                        <input type="text" id="email_biller_pl" placeholder={"  "+window.localStorage.fn}/>
+                        </th>   
+                        <th>
+                        <button id="em_button">Change</button><br/>
+                        </th>
+                    </tr>   
+                    </table> 
+            </div>
+
             </div>
           );
     }
