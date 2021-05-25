@@ -132,63 +132,6 @@ const sendrejectEmail = async (req,res) => {
 });
 }
 
-// send email of cancel operation
-const sendcancelEmail = async (req,res) => {
-    
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
-    auth: {
-        user: 'elda64@ethereal.email',
-        pass: '5m17Zjd99M5gNZ45E4'
-    }
-  })
-
-  const userInstance = await User.findOne({email: req.body.user_email}).lean()
-  const u_fn = userInstance.first_name
-  const u_ln = userInstance.last_name
-  const u_email = userInstance.email
-  const u_ph = userInstance.phone_number
-  const u_pk = req.body.pickup_date
-  const u_st = req.body.service_type
-  const u_om = req.body.option_message
-
-  // Message object
-  let message = {
-    // Comma separated list of recipients
-    to: req.body.user_email,
-
-    // Subject of the message
-    subject: 'Booking Cancelled',
-
-    // plaintext body
-    text: 'Booking cancelled',
-
-    // HTML body
-    html: "<p>The voucher booking with the information below has been cancelled: </br>" +
-            "Name: " + u_fn + " " + u_ln + "</br>" +
-            "Phone number: " + u_ph + "</br>" +
-            "Email address: " + u_email + "</br>" +
-            "Service Type: " + u_st + "</br>" +
-            "Pick-up Date: " + u_pk + "</br>" +
-            "Message: " + u_om +
-          "</p>"
-
-    };
-
-  transporter.sendMail(message, (error, info) => {
-    if (error) {
-        console.log('Error occurred');
-        console.log(error.message);
-        return process.exit(1);
-    }
-    console.log(nodemailer.getTestMessageUrl(info));
-
-});
-}
-
-
-
 const makeBooking = async (req,res) =>{
     var date = new Date()
     const newbooking = new Booking({
@@ -327,7 +270,7 @@ const sendCancelEmail = async (req,res) => {
     to: 'Admin <admin@test.com>',
 
     // Subject of the message
-    subject: 'booking cancelled',
+    subject: 'Booking cancelled',
 
     // plaintext body
     text: 'Test email from voucher service',
