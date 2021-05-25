@@ -4,6 +4,7 @@ const bookingController = require('../controllers/bookingControllers.js')
 
 
 bookingRouter.post('/makebooking', bookingController.makeBooking)
+bookingRouter.post('/cancelbooking', bookingController.cancelBooking)
 bookingRouter.post('/getbooking/:email', bookingController.getBookings)
 bookingRouter.post('/getuserbooking', bookingController.getSingleUserBookings)
 

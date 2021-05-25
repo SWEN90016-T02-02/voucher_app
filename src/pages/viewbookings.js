@@ -17,7 +17,7 @@ const ViewSingleBookingUser = (props) => {
       .then(resp =>{
         const len = resp.data.length
         for(var i=0; i<len; i++){
-          window.localStorage.setItem(""+i+"_id", "get id #" + i + " from database here") //TODO
+          window.localStorage.setItem(''+i, i) //TODO
           window.localStorage.setItem(""+i+0, resp.data[i].service_type)
           window.localStorage.setItem(""+i+1, resp.data[i].method)
           window.localStorage.setItem(""+i+2, resp.data[i].pickup_date)
@@ -32,7 +32,7 @@ const ViewSingleBookingUser = (props) => {
     var bookings = []
     for(var i=0; i<window.localStorage.getItem("numberofbooking"); i++){
       var instance = {
-        "id": window.localStorage.getItem(""+i+"_id"),
+        "id": window.localStorage.getItem(""+i),
         "st": window.localStorage.getItem(""+i+0),
         "method": window.localStorage.getItem(""+i+1),
         "pkd": window.localStorage.getItem(""+i+2),
@@ -48,7 +48,21 @@ const ViewSingleBookingUser = (props) => {
 
   function cancelBooking(id) {
     // Use id to delete in database
-    console.log(id) // TODO
+    const request = {
+      user_email: window.localStorage.getItem("email")+"",
+      service_type: window.localStorage.getItem(""+id+0),
+      method: window.localStorage.getItem(""+id+1),
+      pickup_date: window.localStorage.getItem(""+id+2),
+      option_message: window.localStorage.getItem(""+id+3),
+    } // TODO
+    axios.post('http://localhost:4000/booking/cancelbooking', request)
+    .then(resp =>{
+      alert("Successfully Cancelled");
+      window.location = '/viewbookings/'
+    })
+    .catch(err =>{
+      alert(err)
+    })
     // Then refresh the page
   }
 
