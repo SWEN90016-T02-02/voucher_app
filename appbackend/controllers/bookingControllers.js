@@ -16,6 +16,11 @@ const acceptBooking = async (req,res) =>{
 // admin rejects booking
 const rejectBooking = async (req,res) =>{
     sendrejectEmail(req,res)
+    await Booking.deleteOne({service_type:req.body.service_type, 
+        method:req.body.method,
+        pickup_date:req.body.pickup_date,
+        phone_number: req.body.phone_number,
+        user_email: req.body.user_email})
     return res.status(200).send({
         message:"Successfully reject"
     }
@@ -46,7 +51,7 @@ const sendacceptEmail = async (req,res) => {
     // Message object
     let message = {
       // Comma separated list of recipients
-      to: req.body.user_email,
+      to: req.body.user_email + '',
 
       // Subject of the message
       subject: 'Booking Accepted',
@@ -61,7 +66,6 @@ const sendacceptEmail = async (req,res) => {
               "Email address: " + u_email + "</br>" +
               "Service Type: " + u_st + "</br>" +
               "Pick-up Date: " + u_pk + "</br>" +
-              "Message: " + u_om + 
             "</p>"
 
       };
@@ -96,12 +100,11 @@ const sendrejectEmail = async (req,res) => {
     const u_ph = userInstance.phone_number
     const u_pk = req.body.pickup_date
     const u_st = req.body.service_type
-    const u_om = req.body.option_message
 
     // Message object
     let message = {
       // Comma separated list of recipients
-      to: req.body.user_email,
+      to: req.body.user_email + '',
 
       // Subject of the message
       subject: 'Booking Rejected',
@@ -116,7 +119,6 @@ const sendrejectEmail = async (req,res) => {
               "Email address: " + u_email + "</br>" +
               "Service Type: " + u_st + "</br>" +
               "Pick-up Date: " + u_pk + "</br>" +
-              "Message: " + u_om +
             "</p>"
 
       };
