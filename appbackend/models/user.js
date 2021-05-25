@@ -8,7 +8,9 @@ const userSchema = new mongoose.Schema({
     email: {type: String,  required: true},
     password: {type: String,  required: true},  
     point:{type: Number, required: true},
-    isadmin: {type: Boolean, required: true}
+    isadmin: {type: Boolean, required: true},
+    name_on_invice: {type: String, required:false},
+    biller_email: {type: String, required:false},
 })
 
 const User = mongoose.model('User', userSchema)
