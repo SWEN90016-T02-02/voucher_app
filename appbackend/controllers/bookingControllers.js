@@ -41,26 +41,27 @@ const sendacceptEmail = async (req,res) => {
     const u_ph = userInstance.phone_number
     const u_pk = req.body.pickup_date
     const u_st = req.body.service_type
+    const u_om = req.body.option_message
 
     // Message object
     let message = {
       // Comma separated list of recipients
-      to: 'Admin <admin@test.com>',
+      to: req.body.user_email,
 
       // Subject of the message
       subject: 'Booking Accepted',
 
       // plaintext body
-      text: 'Test email from voucher service',
+      text: 'Booking has been accepted',
 
       // HTML body
-      html: "<p>The voucher booking with the information below has been accpeted: </br>" +
+      html: "<p>The voucher booking with the information below has been accepted: </br>" +
               "Name: " + u_fn + " " + u_ln + "</br>" +
               "Phone number: " + u_ph + "</br>" +
               "Email address: " + u_email + "</br>" +
               "Service Type: " + u_st + "</br>" +
               "Pick-up Date: " + u_pk + "</br>" +
-              "Message: " + 
+              "Message: " + u_om + 
             "</p>"
 
       };
@@ -76,7 +77,7 @@ const sendacceptEmail = async (req,res) => {
 });
 }
 
-// send email of accepting operation
+// send email of reject operation
 const sendrejectEmail = async (req,res) => {
     
     const transporter = nodemailer.createTransport({
@@ -95,17 +96,18 @@ const sendrejectEmail = async (req,res) => {
     const u_ph = userInstance.phone_number
     const u_pk = req.body.pickup_date
     const u_st = req.body.service_type
+    const u_om = req.body.option_message
 
     // Message object
     let message = {
       // Comma separated list of recipients
-      to: 'Admin <admin@test.com>',
+      to: req.body.user_email,
 
       // Subject of the message
       subject: 'Booking Rejected',
 
       // plaintext body
-      text: 'Test email from voucher service',
+      text: 'Booking rejected',
 
       // HTML body
       html: "<p>The voucher booking with the information below has been rejected: </br>" +
@@ -114,7 +116,7 @@ const sendrejectEmail = async (req,res) => {
               "Email address: " + u_email + "</br>" +
               "Service Type: " + u_st + "</br>" +
               "Pick-up Date: " + u_pk + "</br>" +
-              "Message: " + 
+              "Message: " + u_om +
             "</p>"
 
       };
@@ -130,7 +132,60 @@ const sendrejectEmail = async (req,res) => {
 });
 }
 
+// send email of cancel operation
+const sendcancelEmail = async (req,res) => {
+    
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    auth: {
+        user: 'elda64@ethereal.email',
+        pass: '5m17Zjd99M5gNZ45E4'
+    }
+  })
 
+  const userInstance = await User.findOne({email: req.body.user_email}).lean()
+  const u_fn = userInstance.first_name
+  const u_ln = userInstance.last_name
+  const u_email = userInstance.email
+  const u_ph = userInstance.phone_number
+  const u_pk = req.body.pickup_date
+  const u_st = req.body.service_type
+  const u_om = req.body.option_message
+
+  // Message object
+  let message = {
+    // Comma separated list of recipients
+    to: req.body.user_email,
+
+    // Subject of the message
+    subject: 'Booking Cancelled',
+
+    // plaintext body
+    text: 'Booking cancelled',
+
+    // HTML body
+    html: "<p>The voucher booking with the information below has been cancelled: </br>" +
+            "Name: " + u_fn + " " + u_ln + "</br>" +
+            "Phone number: " + u_ph + "</br>" +
+            "Email address: " + u_email + "</br>" +
+            "Service Type: " + u_st + "</br>" +
+            "Pick-up Date: " + u_pk + "</br>" +
+            "Message: " + u_om +
+          "</p>"
+
+    };
+
+  transporter.sendMail(message, (error, info) => {
+    if (error) {
+        console.log('Error occurred');
+        console.log(error.message);
+        return process.exit(1);
+    }
+    console.log(nodemailer.getTestMessageUrl(info));
+
+});
+}
 
 
 
@@ -187,6 +242,7 @@ const sendEmail = async (req,res) => {
     const u_ph = userInstance.phone_number
     const u_pk = req.body.pickup_date
     const u_st = req.body.service_type
+    const u_om = req.body.option_message
     const u_date = new Date()
 
 
@@ -197,10 +253,10 @@ const sendEmail = async (req,res) => {
       to: 'Admin <admin@test.com>',
 
       // Subject of the message
-      subject: 'Voucher booking',
+      subject: 'Voucher booking made',
 
       // plaintext body
-      text: 'Test email from voucher service',
+      text: 'Booking made',
 
       // HTML body
       html: "<p>A new voucher booking has been made: </br>" +
@@ -209,8 +265,8 @@ const sendEmail = async (req,res) => {
               "Email address: " + u_email + "</br>" +
               "Service Type: " + u_st + "</br>" +
               "Pick-up Date: " + u_pk + "</br>" +
-              "Date: " + u_date +
-              "Message: " +
+              "Date: " + u_date + "</br>" +
+              "Message: " + u_om +
             "</p>"
 
       };
