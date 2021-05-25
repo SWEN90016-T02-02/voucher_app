@@ -50,23 +50,30 @@ class MakeBooking extends Component{
   makeBooking(e){
     e.preventDefault()
 
-    const request = {
-      user_email:window.localStorage.getItem("email"),
-      phone_number:window.localStorage.getItem("phone"),
-      service_type: this.state.service_type,
-      method: this.state.method,
-      pickup_date:this.state.pickup_date,
-      option_message:this.state.option_message
+    if (window.localStorage.getItem("point") < 100) {
+      alert("Not enough points")
+    } else {
+      const request = {
+        user_email:window.localStorage.getItem("email"),
+        phone_number:window.localStorage.getItem("phone"),
+        service_type: this.state.service_type,
+        method: this.state.method,
+        pickup_date:this.state.pickup_date,
+        option_message:this.state.option_message,
+      }
+  
+      axios.post("http://localhost:4000/booking/makebooking", request)
+      .then(resp =>{
+        alert("Successfully Booked");
+        window.localStorage.setItem("point", resp.data.point)
+        window.location = '/viewbookings/'
+      })
+      .catch(err =>{
+        alert(err)
+      })
     }
 
-    axios.post("http://localhost:4000/booking/makebooking", request)
-    .then(resp =>{
-      alert("Successfully Booked");
-      // window.location = '/'
-    })
-    .catch(err =>{
-      alert(err)
-    })
+
 
   }
 
@@ -79,7 +86,11 @@ class MakeBooking extends Component{
             <img src={logo} />
           </div>
           <form method="post">
+          <div id="a">
+          <label> <b>Points remaining:</b> </label> {window.localStorage.getItem("point")}
+          </div>
             <div id="a">
+              
             <label><b>Voucher Service Type</b></label>
           <select name="type" onChange={this.changeService} value={this.state.service_type}>
                 <option selected="selected">Please Choose</option>

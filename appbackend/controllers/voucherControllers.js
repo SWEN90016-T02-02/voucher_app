@@ -18,7 +18,8 @@ const redeemVoucher = async (req,res) => {
                 const userupdated = await User.findOne({email:req.body.email}).lean()
                 return res.status(200).send({
                     message: "" + voucher_point + " voucher points successfully added to the user! Now " 
-                                + userupdated.point + " remaining."
+                                + userupdated.point + " remaining.",
+                    point: userupdated.point
                 }
                 ) 
             }

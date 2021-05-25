@@ -145,8 +145,11 @@ const makeBooking = async (req,res) =>{
     })       
     newbooking.save()
     sendEmail(req,res)
+    await User.updateOne({email:req.body.user_email},{$inc:{point:-100}})
+    const userupdated = await User.findOne({email:req.body.user_email}).lean()
     return res.status(200).send({
-        message:"Success"
+        message:"Success",
+        point: userupdated.point
     }
     )           
 }

@@ -63,7 +63,6 @@ const ViewSingleBookingUser = (props) => {
     .catch(err =>{
       alert(err)
     })
-    // Then refresh the page
   }
 
   const listBookings = bookings.map((d) =>  <li>

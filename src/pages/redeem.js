@@ -33,6 +33,9 @@ class Redeem extends Component{
     .then(resp =>{
       // alert("Successfully Redeemed");
       alert(resp.data.message);
+      if (resp.status == 200) {
+        window.localStorage.setItem("point", resp.data.point);
+      }
       window.location = '/'
     })
     .catch(err =>{
