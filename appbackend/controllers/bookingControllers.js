@@ -76,7 +76,7 @@ const sendacceptEmail = async (req,res) => {
 });
 }
 
-// send email of accepting operation
+// send email of rejecting operation
 const sendrejectEmail = async (req,res) => {
     
     const transporter = nodemailer.createTransport({
@@ -188,6 +188,7 @@ const sendEmail = async (req,res) => {
     const u_pk = req.body.pickup_date
     const u_st = req.body.service_type
     const u_date = new Date()
+    const msg = req.body.optional_message
 
 
 
@@ -209,8 +210,8 @@ const sendEmail = async (req,res) => {
               "Email address: " + u_email + "</br>" +
               "Service Type: " + u_st + "</br>" +
               "Pick-up Date: " + u_pk + "</br>" +
-              "Date: " + u_date +
-              "Message: " +
+              "Date: " + u_date + "</br>"+ 
+              "Message: " + msg + "</br>"+
             "</p>"
 
       };
