@@ -33,13 +33,13 @@
 /* 将图像居中 */
 #login .imgcontainer {
     text-align: center;
-    margin: 16px 0 16px 0;
+    /* margin: 16px 0 16px 0; */
     position: relative;
 }
  
 /*控制图片形状*/
 #login img.avatar {
-    width: 40%;
+    width: 100%;
     border-radius: 0%; /*以百分比定义圆角的形状*/
 }
  

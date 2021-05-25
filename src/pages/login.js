@@ -59,10 +59,11 @@ class LogIn extends Component {
     render(){
       return (
         <div class="page" id="login">
-          <form class="modal-content" action="">
-            <div class="imgcontainer">
+          <div class="imgcontainer">
             <img src={logo} alt="Avatar" class="avatar"/>
             </div>
+          <form class="modal-content" action="">
+            
             <div class="container">
               <label><b>Email address:</b></label>
               <input type="text" placeholder="Enter email address" onChange={this.changeEmail} 
@@ -73,8 +74,6 @@ class LogIn extends Component {
                 value={this.state.password} placeholder="Enter password" name="psw" required/>
         
               <button type="submit" onClick={this.login}>Login</button>
-              <button type="submit" onClick={event => window.location.href='/register'}>Register</button>
-              <input type="checkbox"/> Remember me
     
               <div class="container" id="f1">
                  <button type="button" onClick={event => window.location.href='/'} class="cancelbtn">Cancel</button>
